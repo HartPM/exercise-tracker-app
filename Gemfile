@@ -14,6 +14,8 @@ gem "puma", "~> 5.0"
 
 gem 'active_model_serializers'
 
+gem 'bcrypt', '~> 3.1.18'
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
