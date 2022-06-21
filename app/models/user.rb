@@ -1,4 +1,6 @@
-class Athlete < ApplicationRecord
+class User < ApplicationRecord
+    has_secure_password
+    
     has_many :activities
     has_many :sports, through: :activities
 

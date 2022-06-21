@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "Seeding athletes..."
+puts "Seeding users..."
 25.times do 
-    Athlete.create(
+    User.create(
+        username: Faker::Color.color_name + Faker::Creature::Animal.name, 
+        password: "test",
         name: Faker::Name.name,
         dob: Faker::Date.between(from: 18.years.ago, to: 100.years.ago),
         weight: Faker::Number.between(from: 50, to: 350),
@@ -25,7 +27,7 @@ puts "Seeding sports..."
 puts "Seeding activities..."
     75.times do
         Activity.create(
-            athlete_id: Faker::Number.between(from: 1, to: 25),
+            user_id: Faker::Number.between(from: 1, to: 25),
             sport_id: Faker::Number.between(from: 1, to: 2),
             title: Faker::Movies::Lebowski.quote,
             duration: Faker::Number.between(from: 1, to: 24),
