@@ -7,3 +7,7 @@ class Activity < ApplicationRecord
     validates :distance, numericality: true
 
 end
+
+# Activity.all.sort_by(&:sport_id)
+# Activity.where(sport_id: 2)
+# Activity.limit(3).where(sport_id: 2).sort_by(&:distance)

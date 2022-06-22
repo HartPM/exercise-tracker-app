@@ -5,7 +5,7 @@ import Auth from './Auth';
 import Login from './Login';
 import Logout from './Logout';
 import MyActivities from './MyActivities';
-import Leaderboard from './Leaderboard';
+import LeaderBoard from './LeaderBoard';
 
 
 function App() {
@@ -33,13 +33,13 @@ function App() {
       <div>
         <Logout onLogout={onLogout} />
         <nav>
-          <Link to="/activities">My Activities</Link>
-          <Link to="/leaderboard">Leaderboard</Link>
+          <Link to="/Activities">My Activities</Link>
+          <Link to="/LeaderBoard">LeaderBoard</Link>
         </nav>
         <Routes>
           <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
-          <Route exact path="/activities" element={ user ? <MyActivities user={user} /> : <Navigate replace to="/" />} />
-          <Route exact path="/leaderboard" element={<Leaderboard/>} />
+          <Route exact path="/Activities" element={ user ? <MyActivities user={user} /> : <Navigate replace to="/" />} />
+          <Route exact path="/LeaderBoard" element={<LeaderBoard/>} />
         </Routes>
         {showCreateUser ? <Auth setCurrentUser={setUser}/> : null}        
         {!showCreateUser ? <button onClick={showNewUserForm}>Create Account</button> : null }

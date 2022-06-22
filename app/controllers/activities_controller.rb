@@ -3,7 +3,12 @@ class ActivitiesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_response
 
     def index
+        # if params[:user_id]
+        #     user = User.find(params[:user_id])
+        #     activities = user.activities
+        # else
         activities = Activity.all
+        # end
         render json: activities, status: :ok
     end
 
@@ -27,6 +32,16 @@ class ActivitiesController < ApplicationController
         activity = Activity.find(params[:id])
         activity.destroy
         head :no_content, status: 204
+    end
+
+    def longest_runs
+        activities = Activity.limit(3).where(sport_id: 2).order(distance: :desc)
+        render json: activities, status: :ok
+    end
+
+    def longest_rides
+        activities = Activity.limit(3).where(sport_id: 1).order(distance: :desc)
+        render json: activities, status: :ok
     end
 
     private
