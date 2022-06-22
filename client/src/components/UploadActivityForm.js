@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function UploadActivityForm ({user, addActivity}) {
+function UploadActivityForm ({user}) {
     const [title, setTitle] = useState('');
     const [duration, setDuration] = useState('');
     const [distance, setDistance] = useState('');

@@ -20,6 +20,7 @@ function Login({ onLogin }) {
     }
   
     return (
+      <>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -35,6 +36,8 @@ function Login({ onLogin }) {
         />
         <button type="submit">Login</button>
       </form>
+      <Auth setCurrentUser={onLogin} />
+      </>
     );
   }
 
