@@ -1,10 +1,10 @@
-import { Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UploadActivityForm from "./UploadActivityForm";
 import ActivityCard from "./ActivityCard";
 
 function MyActivities ({ user }) {
-    const [activities, setActivities] = useState([])
+    const [activities, setActivities] = useState([]);
+    // const [render, setRender] = useState(true);
 
     useEffect(() => {
         fetch(`/users/${user.id}`).then((response) => {
@@ -13,6 +13,10 @@ function MyActivities ({ user }) {
           }
         });
       }, [user.id]);
+
+      // function updateActivities () {
+      //   setRender(!render);
+      // }
 
 
     return (

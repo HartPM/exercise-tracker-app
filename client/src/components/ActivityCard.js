@@ -1,6 +1,8 @@
+import ActivityEditForm from "./ActivityEditForm";
+
 
 function ActivityCard ({activity}) {
-    const {title, sport_id, formatted_date} = activity;
+    const {id, title, sport_id, formatted_date} = activity;
 
     let sport = (sport_id ===1) ? "Running" : "Cycling" 
 
@@ -12,14 +14,26 @@ function ActivityCard ({activity}) {
         }
     }
 
+    function edit () {
+
+    }
+
+    function deleteActivity (e) {
+        fetch(`/activities/${id}`, {
+            method: "DELETE"
+        })
+    }
+
+
     return (
         <li>
             <h4>{shortTitle(title)}</h4> 
             <p>{sport}</p>
             <p>{formatted_date}</p>
-            <button>Edit</button>
+            <button onClick={edit}>Edit</button>
+            <ActivityEditForm id={id}/>
             <button>Analyze</button>
-            <button>Delete</button>
+            <button onClick={deleteActivity} value={activity.id}>Delete</button>
         </li>
     )
 }
