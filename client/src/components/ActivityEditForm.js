@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-function ActivityEditForm ({ id }) {
+function ActivityEditForm ({ id, reRender }) {
     const [title, setTitle] = useState('');
     const [duration, setDuration] = useState('');
     const [distance, setDistance] = useState('');
     const [heartRate, setHeartRate] = useState('');
     const [elevation, setElevation] = useState('');
-    const [sport, setSport] = useState('');
+    const [sport, setSport] = useState(null);
 
     
     function handleSubmit(e) {
@@ -17,9 +17,13 @@ function ActivityEditForm ({ id }) {
         if (distance.length > 0) { activity.distance = distance }
         if (heartRate.length > 0) { activity.heartRate = heartRate }
         if (elevation.length > 0) { activity.elevation = elevation }
-        if (sport.length > 0) { activity.sport = sport }
+        if (sport === "Run") { 
+            activity.sport_id = 1 
+        } else if (sport === "Bike") {
+            activity.sport_id = 2
+        } 
         
-        console.log(activity)
+
         fetch(`/activities/${id}`, {
           method: "PATCH",
           headers: {
@@ -34,11 +38,11 @@ function ActivityEditForm ({ id }) {
             setDistance(""),
             setHeartRate(""),
             setElevation("")
-          )
+          ).then(reRender)
       }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={e => handleSubmit(e)}>
         <label>
             Title
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -62,11 +66,10 @@ function ActivityEditForm ({ id }) {
         <label>Choose a sport
             <select onChange={(e) => setSport(e.target.value)}>
                 <option></option>
-                <option value="1">Run</option>
-                <option value="1">Bike</option>
+                <option>Run</option>
+                <option>Bike</option>
             </select>
         </label>
-
         <button type="submit">Save</button>
     </form>
     )

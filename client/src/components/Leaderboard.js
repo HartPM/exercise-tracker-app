@@ -19,8 +19,6 @@ function LeaderBoard() {
               response.json().then((data) => setRides(data));
             }});
         }, [runs]);
-  
-console.log(rides)
 
     return (
         <>

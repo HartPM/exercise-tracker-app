@@ -1,26 +1,21 @@
 <mxfile host="65bd71144e">
     <diagram id="QdPgYa7zvZrDEsVL0cUU" name="Page-1">
-        <mxGraphModel dx="781" dy="301" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="838" dy="303" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="App" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="10" y="10" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="10" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="3" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="70" y="190" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3" value="Log in" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="3" value="Login" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="10" y="100" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="4" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="365" y="190" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="4" value="User profile" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="4" value="Profile" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="305" y="100" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" edge="1">
@@ -49,29 +44,34 @@
                         <mxPoint x="790" y="190" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="35" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="740" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="7" value="Sports leaderboards" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="730" y="100" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="NavBar" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="160" y="100" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="9" value="New User Form" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="9" value="Auth" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="10" y="200" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Activity card&lt;br&gt;(edit &amp;amp; delete btns)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="440" y="200" width="70" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="Leaderboard&lt;br&gt;Card" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="740" y="200" width="110" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="23" value="Edit user form&lt;br&gt;if !user/:id&lt;br&gt;create&lt;br&gt;else update" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="310" y="200" width="115" height="60" as="geometry"/>
+                <mxCell id="16" value="Longest Runs" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="200" width="80" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="Add/ edit activity form" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="470" y="280" width="80" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="Filter activities" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="500" y="350" width="90" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Logout" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="100" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Longest Rides" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="270" width="90" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

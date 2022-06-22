@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import UploadActivityForm from "./UploadActivityForm";
+import ActivityCreateForm from "./ActivityCreateForm";
 import ActivityCard from "./ActivityCard";
 
 function MyActivities ({ user }) {
     const [activities, setActivities] = useState([]);
-    // const [render, setRender] = useState(true);
+    const [toggleCreate, setToggleCreate] = useState(true);
+    const [render, setRender] = useState(true);
 
     useEffect(() => {
         fetch(`/users/${user.id}`).then((response) => {
@@ -12,22 +13,28 @@ function MyActivities ({ user }) {
             response.json().then((data) => setActivities(data.activities));
           }
         });
-      }, [user.id]);
+      }, [user.id, render]);
 
-      // function updateActivities () {
-      //   setRender(!render);
-      // }
+      let activityArr = activities.map(activity => <ActivityCard key={activity.id} activity={activity} reRender={reRender}/>)
 
+      function hideForm() {
+        setToggleCreate(!toggleCreate)
+      }
+
+      function reRender() {
+        setRender(!render)
+      }
 
     return (
         <>
             <main>
                 <h2>Welcome {user.name}!</h2>
             </main>
-            <h4>Upload New Activity</h4>
-            <UploadActivityForm user={user} />
+            <h3>Activity Log</h3>
+            <button onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
+            {toggleCreate ? null : <ActivityCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
             <ul>
-                {activities.map(activity => <ActivityCard key={activity.id} activity={activity} />)}
+                {activityArr}
             </ul>
         </>
     )

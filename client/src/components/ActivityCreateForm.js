@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function UploadActivityForm ({user}) {
+function ActivityCreateForm ({user, hideForm, reRender}) {
     const [title, setTitle] = useState('');
     const [duration, setDuration] = useState('');
     const [distance, setDistance] = useState('');
@@ -36,6 +36,8 @@ function UploadActivityForm ({user}) {
             setHeartRate(""),
             setElevation("")
           )
+          .then(hideForm)
+          .then(reRender)
       }
 
 
@@ -76,4 +78,4 @@ function UploadActivityForm ({user}) {
     )
 }
 
-export default UploadActivityForm;
+export default ActivityCreateForm;
