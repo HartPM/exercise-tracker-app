@@ -20,6 +20,7 @@ function MyActivities ({ user }) {
             <main>
                 <h2>Welcome {user.name}!</h2>
             </main>
+            <h4>Upload New Activity</h4>
             <UploadActivityForm user={user} />
             <ul>
                 {activities.map(activity => <ActivityCard key={activity.id} activity={activity} />)}
