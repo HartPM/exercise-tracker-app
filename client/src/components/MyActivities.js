@@ -12,7 +12,7 @@ function MyActivities ({ user }) {
             response.json().then((data) => setActivities(data.activities));
           }
         });
-      }, [activities, user.id]);
+      }, [user.id]);
 
 
     return (
@@ -22,7 +22,7 @@ function MyActivities ({ user }) {
             </main>
             <UploadActivityForm user={user} />
             <ul>
-                {activities.map(activity => <ActivityCard key={activity.id}activity={activity} />)}
+                {activities.map(activity => <ActivityCard key={activity.id} activity={activity} />)}
             </ul>
         </>
     )

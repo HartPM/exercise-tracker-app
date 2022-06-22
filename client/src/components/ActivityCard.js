@@ -2,7 +2,7 @@
 function ActivityCard ({activity}) {
     const {title, sport_id, created_at} = activity;
 
-    let date = created_at.strf
+    let date = created_at
 
     return (
         <li>
