@@ -1,20 +1,22 @@
 import '../App.css';
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-import Logout from './Logout';
+import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Auth from './Auth';
 import Login from './Login';
-import UserProfile from './UserProfile';
+import Logout from './Logout';
+import MyActivities from './MyActivities';
+import Leaderboard from './Leaderboard';
 
 
 function App() {
   const [user, setUser] = useState(null);
   const [showCreateUser, setShowCreateUser] = useState(false);
+  
 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then((data) => setUser(data));
       }
     });
   }, []);
@@ -27,30 +29,22 @@ function App() {
     setUser(null)
   }
 
-  if (user) {
     return (
       <div>
         <Logout onLogout={onLogout} />
+        <nav>
+          <Link to="/activities">My Activities</Link>
+          <Link to="/leaderboard">Leaderboard</Link>
+        </nav>
         <Routes>
-          <Route path="/" element={<UserProfile />} />
+          <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
+          <Route exact path="/activities" element={ user ? <MyActivities user={user} /> : <Navigate replace to="/" />} />
+          <Route exact path="/leaderboard" element={<Leaderboard/>} />
         </Routes>
+        {showCreateUser ? <Auth setCurrentUser={setUser}/> : null}        
+        {!showCreateUser ? <button onClick={showNewUserForm}>Create Account</button> : null }
       </div>
     )
-  } else {
-    return (
-      <>
-        <Routes>
-          <Route exact path="/" element={<Login onLogin={setUser} /> } />
-        </Routes>
-        <br></br>
-        {showCreateUser ? <Auth setCurrentUser={setUser}/> : null}        
-        {!showCreateUser ? (
-        <button onClick={showNewUserForm}>
-          Create Account
-        </button>
-        ) : null }
-      </>
-  )}
 }
 
 export default App;

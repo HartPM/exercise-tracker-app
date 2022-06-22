@@ -31,7 +31,7 @@ class ActivitiesController < ApplicationController
 
     private
     def activity_params
-        params.permit(:athlete_id, :sport_id, :title, :duration, :distance, :heart_rate, :elevation)
+        params.permit(:user_id, :sport_id, :title, :duration, :distance, :heart_rate, :elevation)
     end
 
     def record_not_found_response
