@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 function ActivityCard ({activity, reRender}) {
-    const {id, title, sport_id, formatted_date} = activity;
+    const {id, title, sport_id, formatted_date, duration, distance, heart_rate, elevation} = activity;
     const[toggleEdit, setToggleEdit] = useState(true);
 
     let sport = (sport_id ===1) ? "Running" : "Cycling" 
@@ -28,7 +28,7 @@ function ActivityCard ({activity, reRender}) {
             <h4>{shortTitle(title)}</h4> 
             <p>{sport}</p>
             <p>{formatted_date}</p>
-            <Link to={`/Activities/${activity.id}`}>
+            <Link to={`/Activities/${activity.id}`}  state={{title, sport, formatted_date, duration, distance, heart_rate, elevation}}>
                 <button>Analyze</button>
             </Link>
             <button onClick={e => setToggleEdit(!toggleEdit)}>Edit</button>

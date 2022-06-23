@@ -2,25 +2,29 @@ import { useState } from 'react';
 
 function ActivityCreateForm ({user, hideForm, reRender}) {
     const [title, setTitle] = useState('');
-    const [duration, setDuration] = useState('');
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
     const [distance, setDistance] = useState('');
     const [heartRate, setHeartRate] = useState('');
     const [elevation, setElevation] = useState('');
     const [sport, setSport] = useState('');
 
+    const duration = (hours, minutes) => {
+        return (hours === 0) ? minutes : hours * 60 + parseInt(minutes)
+    }
     
     function handleSubmit(e) {
         e.preventDefault();
         const activity = {
             title: title,
-            duration: parseInt(duration),
+            duration: duration(hours, minutes),
             distance: parseInt(distance),
             heart_rate: parseInt(heartRate),
             elevation: parseInt(elevation),
             sport_id: parseInt(sport),
             user_id: user.id
         }
-        console.log(activity)
+
         fetch("/activities", {
           method: "POST",
           headers: {
@@ -31,7 +35,8 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
           .then((r) => r.json())
           .then(
             setTitle(""),
-            setDuration(""),
+            setHours(0),
+            setMinutes(0),
             setDistance(""),
             setHeartRate(""),
             setElevation("")
@@ -50,7 +55,14 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
                 </label>
                 <label>
                     Duration
-                    <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} />
+                    <label>
+                        <input type="number" value={hours} onChange={(e) => setHours(e.target.value)} />
+                        hrs :
+                    </label>
+                    <label>
+                        <input type="number" value={minutes} onChange={(e) => setMinutes(e.target.value)} />
+                        mins
+                    </label>
                 </label>
                 <label>
                     Distance

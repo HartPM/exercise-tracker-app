@@ -20,23 +20,23 @@ code {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 80%;
 }
 
 .main {
-  background-color: #43D7DF;
-  opacity: 75%;
+  background-color: white;
+  opacity: 90%;
   min-height: 200px;
 }
 
 .nav {
   text-align: center;
-  background-color: white;
-  opacity: 95%;
+  background-color: #005559;
 }
 
 .link {
   font-size: 25px;
-  color: #005559;
+  color: white;
   text-decoration: none;
   padding: 10%;
 }

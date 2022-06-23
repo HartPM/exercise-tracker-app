@@ -4,7 +4,7 @@ import ActivityCard from "./ActivityCard";
 
 
 
-function MyActivities ({ user }) {
+function Activities ({ user }) {
     const [activities, setActivities] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
@@ -29,9 +29,7 @@ function MyActivities ({ user }) {
 
     return (
         <>
-            <main>
-                <h2>Welcome {user.name}!</h2>
-            </main>
+            <h2>{user.name}'s Activities</h2>
             <button onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
             {toggleCreate ? null : <ActivityCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
             <h3>Activity Log</h3>
@@ -42,4 +40,4 @@ function MyActivities ({ user }) {
     )
 }
 
-export default MyActivities;
+export default Activities;

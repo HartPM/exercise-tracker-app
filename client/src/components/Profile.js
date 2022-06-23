@@ -24,7 +24,7 @@ function Profile () {
             <br></br>
             <div>
                 <img src={user.profile_img} alt='Profile' />
-                <h4>{user.name}</h4>
+                <h2>{user.name}</h2>
             </div>
             <div>
                 <ul>
