@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ActivityCreateForm from "./ActivityCreateForm";
 import ActivityCard from "./ActivityCard";
 
+
+
 function MyActivities ({ user }) {
     const [activities, setActivities] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
@@ -15,7 +17,7 @@ function MyActivities ({ user }) {
         });
       }, [user.id, render]);
 
-      let activityArr = activities.map(activity => <ActivityCard key={activity.id} activity={activity} reRender={reRender}/>)
+      let activityArr = activities.map(activity => <ActivityCard key={activity.id} activity={activity} reRender={reRender} />)
 
       function hideForm() {
         setToggleCreate(!toggleCreate)
@@ -30,9 +32,9 @@ function MyActivities ({ user }) {
             <main>
                 <h2>Welcome {user.name}!</h2>
             </main>
-            <h3>Activity Log</h3>
             <button onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
             {toggleCreate ? null : <ActivityCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
+            <h3>Activity Log</h3>
             <ul>
                 {activityArr}
             </ul>

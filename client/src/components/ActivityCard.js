@@ -1,5 +1,6 @@
-import ActivityEditForm from "./ActivityEditForm";
 import { useState } from 'react';
+import ActivityEditForm from "./ActivityEditForm";
+import { Link } from 'react-router-dom';
 
 
 function ActivityCard ({activity, reRender}) {
@@ -27,9 +28,11 @@ function ActivityCard ({activity, reRender}) {
             <h4>{shortTitle(title)}</h4> 
             <p>{sport}</p>
             <p>{formatted_date}</p>
+            <Link to={`/Activities/${activity.id}`}>
+                <button>Analyze</button>
+            </Link>
             <button onClick={e => setToggleEdit(!toggleEdit)}>Edit</button>
             {toggleEdit ? null : <ActivityEditForm id={id} reRender={reRender} />}
-            <button>Analyze</button>
             <button onClick={e => deleteActivity(e)} value={activity.id}>Delete</button>
         </li>
     )
