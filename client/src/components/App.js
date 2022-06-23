@@ -6,6 +6,8 @@ import Logout from './Logout';
 import MyActivities from './MyActivities';
 import LeaderBoard from './LeaderBoard';
 import Profile from './Profile';
+import ActivityDetails from "./ActivityDetails";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,19 +25,30 @@ function App() {
   }
 
     return (
+      
       <div>
+        <div className="main">
         <Logout onLogout={onLogout} />
-        <nav>
-          <Link to="/Profile">My Profile</Link>
-          <Link to="/Activities">My Activities</Link>
-          <Link to="/LeaderBoard">LeaderBoard</Link>
+        <h1 className="title">Exercise App</h1>
+        <nav className="nav">
+          <Link className="link" to="/Profile">Profile</Link>
+          <Link className="link" to="/Activities">Activities</Link>
+          <Link className="link" to="/LeaderBoard">Leaderboards</Link>
         </nav>
-        <Routes>
-          <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
-          <Route exact path="/Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
-          <Route exact path="/Activities" element={ user ? <MyActivities user={user} /> : <Navigate replace to="/" />} />
-          <Route exact path="/LeaderBoard" element={<LeaderBoard/>} />
-        </Routes>
+        </div>
+        <div className="background-container">
+          <Routes>
+            <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
+            <Route path="/Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
+            <Route path="/Activities/" element={ user ? <MyActivities user={user} /> : <Navigate replace to="/" />} />
+            <Route path="Activities/:id" element={<ActivityDetails />} />
+            <Route path="/LeaderBoard" element={<LeaderBoard/>} />
+          </Routes>
+        </div>
+        <footer>
+          <br></br>
+          <br></br>
+        </footer>
       </div>
     )
 }

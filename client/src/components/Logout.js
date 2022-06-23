@@ -7,7 +7,7 @@ function Logout({ onLogout }) {
       }
 
     return (
-        <header>
+        <header className="logout">
             <button onClick={handleLogout}>Logout</button>
         </header>
     )
