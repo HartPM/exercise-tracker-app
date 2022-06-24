@@ -80,7 +80,7 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
                     <select onChange={(e) => setSport(e.target.value)}>
                         <option></option>
                         <option value="1">Run</option>
-                        <option value="1">Bike</option>
+                        <option value="2">Bike</option>
                     </select>
                 </label>
 

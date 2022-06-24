@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
         #     user = User.find(params[:user_id])
         #     activities = user.activities
         # else
-        activities = Activity.all
+        activities = Activity.all.order(:created_at)
         # end
         render json: activities, status: :ok
     end

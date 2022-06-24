@@ -17,10 +17,14 @@ function ActivityCard ({activity, reRender}) {
         }
     }
 
-    function deleteActivity (e) {
+    function deleteActivity () {
         fetch(`/activities/${id}`, {
             method: "DELETE"
         }).then(reRender)
+    }
+
+    function hideForm () {
+        setToggleEdit(!toggleEdit)
     }
 
     return (
@@ -32,7 +36,7 @@ function ActivityCard ({activity, reRender}) {
                 <button>Analyze</button>
             </Link>
             <button onClick={e => setToggleEdit(!toggleEdit)}>Edit</button>
-            {toggleEdit ? null : <ActivityEditForm id={id} reRender={reRender} />}
+            {toggleEdit ? null : <ActivityEditForm id={id} reRender={reRender} hideForm={hideForm} />}
             <button onClick={e => deleteActivity(e)} value={activity.id}>Delete</button>
         </li>
     )

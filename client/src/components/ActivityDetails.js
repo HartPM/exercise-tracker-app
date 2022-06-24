@@ -24,9 +24,8 @@ function ActivityDetails () {
             <h1>{time(duration)}</h1>
             <h1>elevation gain {elevation} feet</h1>
             <h1>{heart_rate} bpm</h1>
-            <h1>avg speed {distance/(duration/60)} mph</h1>
-            <h1>pace {duration/distance} min/mile </h1>
-
+            <h1>avg speed {(distance/(duration/60)).toFixed(1)} mph</h1>
+            <h1>pace {(duration/distance).toFixed(2)} min/mile </h1>
         </div>
     )
 }

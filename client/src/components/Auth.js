@@ -7,7 +7,7 @@ function Auth({setCurrentUser}) {
     const [dob, setDob] = useState('');
     const [showCreateUser, setShowCreateUser] = useState(false);
 
-    // const [login, setLogin] = useState('')
+
     const [errors, setErrors] = useState([]);
 
     function showNewUserForm () {

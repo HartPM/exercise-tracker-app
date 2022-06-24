@@ -1,19 +1,23 @@
 import { useState } from 'react';
 
-function ActivityEditForm ({ id, reRender }) {
+function ActivityEditForm ({ id, reRender, hideForm }) {
     const [title, setTitle] = useState('');
-    const [duration, setDuration] = useState('');
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
     const [distance, setDistance] = useState('');
     const [heartRate, setHeartRate] = useState('');
     const [elevation, setElevation] = useState('');
-    const [sport, setSport] = useState(null);
+    const [sport, setSport] = useState('');
 
+    const duration = (hours, minutes) => {
+        return (hours === 0) ? minutes : hours * 60 + parseInt(minutes)
+    }
     
     function handleSubmit(e) {
         e.preventDefault();
         const activity = {}
         if (title.length > 0) { activity.title = title }
-        if (duration.length > 0) { activity.duration = duration }
+        if (minutes > 0) { activity.duration = duration(hours, minutes) }
         if (distance.length > 0) { activity.distance = distance }
         if (heartRate.length > 0) { activity.heartRate = heartRate }
         if (elevation.length > 0) { activity.elevation = elevation }
@@ -34,11 +38,15 @@ function ActivityEditForm ({ id, reRender }) {
           .then((r) => r.json())
           .then(
             setTitle(""),
-            setDuration(""),
+            setHours(0),
+            setMinutes(0),
             setDistance(""),
             setHeartRate(""),
             setElevation("")
-          ).then(reRender)
+          )
+          .then(reRender)
+          .then(hideForm)
+
       }
 
     return (
@@ -49,7 +57,14 @@ function ActivityEditForm ({ id, reRender }) {
         </label>
         <label>
             Duration
-            <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} />
+            <label>
+                <input type="number" value={hours} onChange={(e) => setHours(e.target.value)} />
+                hrs :
+            </label>
+            <label>
+                <input type="number" value={minutes} onChange={(e) => setMinutes(e.target.value)} />
+                mins
+            </label>
         </label>
         <label>
             Distance
