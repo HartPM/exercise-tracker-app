@@ -1,4 +1,3 @@
-import '../App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Login from './Login';
@@ -7,6 +6,7 @@ import Activities from './Activities';
 import LeaderBoard from './LeaderBoard';
 import Profile from './Profile';
 import ActivityDetails from "./ActivityDetails";
+import ActivityEditForm from './ActivityEditForm';
 
 
 function App() {
@@ -25,30 +25,28 @@ function App() {
   }
 
     return (
-      
       <div>
-        <div className="main">
-        <Logout onLogout={onLogout} />
-        <h1 className="title">Exercise App</h1>
-        <nav className="nav">
-          <Link className="link" to="/Profile">Profile</Link>
-          <Link className="link" to="/Activities">Activities</Link>
-          <Link className="link" to="/LeaderBoard">Leaderboards</Link>
-        </nav>
+        <div className="wrap">
         </div>
-        <div className="background-container">
+        <Logout onLogout={onLogout} />
+        <div className="header-content">
+            <h1 className="title">Exercise App</h1>
+        </div>
+        <div className="main">
           <Routes>
             <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
             <Route path="/Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
             <Route path="/Activities/" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
             <Route path="Activities/:id" element={<ActivityDetails />} />
+            <Route path="Activities/:id/edit" element={<ActivityEditForm />} />
             <Route path="/LeaderBoard" element={<LeaderBoard/>} />
           </Routes>
         </div>
-        <footer>
-          <p>Background photo by Jack Delulio</p>
-          <br></br>
-        </footer>
+        <nav className='nav'>
+          <Link className='link' to="/Profile">Profile</Link>
+          <Link className='link' to="/Activities">Activities</Link>
+          <Link className='link' to="/LeaderBoard">Leaderboards</Link>
+        </nav>
       </div>
     )
 }

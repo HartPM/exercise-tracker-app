@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import ActivityCreateForm from "./ActivityCreateForm";
 import ActivityCard from "./ActivityCard";
 
-
-
 function Activities ({ user }) {
     const [activities, setActivities] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
+    const[toggleEdit, setToggleEdit] = useState(true);
 
     useEffect(() => {
         fetch(`/users/${user.id}`).then((response) => {
@@ -23,19 +22,27 @@ function Activities ({ user }) {
         setToggleCreate(!toggleCreate)
       }
 
-      function reRender() {
-        setRender(!render)
-      }
+    function reRender() {
+      setRender(!render)
+    }
 
     return (
         <>
             <h2>{user.name}'s Activities</h2>
-            <button onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
+            <button className="button2" onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
             {toggleCreate ? null : <ActivityCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
-            <h3>Activity Log</h3>
-            <ul>
+            <table>
+              <thead>
+                <tr>
+                  <th>Activity</th>
+                  <th>Type</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
                 {activityArr}
-            </ul>
+              </tbody>
+            </table>
         </>
     )
 }

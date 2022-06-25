@@ -20,24 +20,28 @@ function Login({ onLogin }) {
     }
   
     return (
-      <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
-      <Auth setCurrentUser={onLogin} />
-      </>
+      <div className='content-container'>
+        <div>
+          <Auth setCurrentUser={onLogin} />
+        </div>
+        <div>
+          <form className='form1' onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
     );
   }
 

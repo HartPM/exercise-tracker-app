@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 function ActivityCreateForm ({user, hideForm, reRender}) {
     const [title, setTitle] = useState('');
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
+    const [hours, setHours] = useState('');
+    const [minutes, setMinutes] = useState('');
     const [distance, setDistance] = useState('');
     const [heartRate, setHeartRate] = useState('');
     const [elevation, setElevation] = useState('');
@@ -47,44 +47,60 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
 
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="form-container1">
+            <form className="form1" onSubmit={handleSubmit}>
                 <label>
                     Title
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input 
+                    type="text" 
+                    placeholder={'name your activity'}
+                    value={title} 
+                    onChange={(e) => setTitle(e.target.value)} />
                 </label>
                 <label>
                     Duration
                     <label>
-                        <input type="number" value={hours} onChange={(e) => setHours(e.target.value)} />
-                        hrs :
+                        <input 
+                        className="input1" 
+                        placeholder={'min'}
+                        type="number" 
+                        value={minutes} 
+                        onChange={(e) => setMinutes(e.target.value)} />
                     </label>
                     <label>
-                        <input type="number" value={minutes} onChange={(e) => setMinutes(e.target.value)} />
-                        mins
+                        <input 
+                        className="input1" 
+                        placeholder={'hr'}                   type="number" 
+                        value={hours} 
+                        onChange={(e) => setHours(e.target.value)} />
                     </label>
                 </label>
                 <label>
                     Distance
-                    <input type="text" value={distance} onChange={(e) => setDistance(e.target.value)} />
+                    <input 
+                    placeholder={'miles'}
+                    type="text" value={distance} onChange={(e) => setDistance(e.target.value)} />
                 </label>
                 <label>
                     Heart Rate
-                    <input type="text" value={heartRate} onChange={(e) => setHeartRate(e.target.value)} />
+                    <input 
+                    placeholder={'bpm'}
+                    type="text" value={heartRate} onChange={(e) => setHeartRate(e.target.value)} />
                 </label>
                 <label>
                     Elevation
-                    <input type="text" value={elevation} onChange={(e) => setElevation(e.target.value)} />
+                    <input 
+                    placeholder={'feet climbed'}
+                    type="text" value={elevation} onChange={(e) => setElevation(e.target.value)} />
                 </label>
-                <label>Choose a sport
+                <label>Sport
                     <select onChange={(e) => setSport(e.target.value)}>
                         <option></option>
                         <option value="1">Run</option>
-                        <option value="1">Bike</option>
+                        <option value="2">Bike</option>
                     </select>
                 </label>
-
-                <button type="submit">Save</button>
+                <button className="form-button1" type="submit">Save</button>
             </form>
         </div>
     )
