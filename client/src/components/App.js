@@ -6,6 +6,7 @@ import Activities from './Activities';
 import LeaderBoard from './LeaderBoard';
 import Profile from './Profile';
 import ActivityDetails from "./ActivityDetails";
+import ActivityEditForm from './ActivityEditForm';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
             <Route path="/Activities/" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
             <Route path="Activities/:id" element={<ActivityDetails />} />
+            <Route path="Activities/:id/edit" element={<ActivityEditForm />} />
             <Route path="/LeaderBoard" element={<LeaderBoard/>} />
           </Routes>
         </div>
