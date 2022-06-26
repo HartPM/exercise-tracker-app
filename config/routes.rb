@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  resources :sports, only: [:index]
-  resources :activities
-  resources :users, except: [:delete]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  # namespace :api do
+    resources :sports, only: [:index]
+    resources :activities
+    resources :users, except: [:delete]
 
-  # keeps the user logged in from the app component
-  get "/me", to: "users#show"
-  get "/longest_runs", to: "activities#longest_runs"
-  get "/longest_rides", to: "activities#longest_rides"
-  # Defines the root path route ("/")
-  # root "articles#index"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
+
+    # keeps the user logged in from the app component
+    get "/me", to: "users#show"
+    get "/longest_runs", to: "activities#longest_runs"
+    get "/longest_rides", to: "activities#longest_rides"
+  # end
+
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
