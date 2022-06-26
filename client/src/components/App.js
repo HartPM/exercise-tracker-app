@@ -37,12 +37,12 @@ function App() {
         <div className="main">
           <Routes>
             <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
-            <Route path="/Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
-            <Route path="/Activities/" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
+            <Route path="Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
+            <Route path="Activities/" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
             <Route path="Activities/:id" element={<ActivityDetails />} />
             <Route path="Activities/:id/edit" element={<ActivityEditForm />} />
-            <Route path="/LeaderBoard" element={<LeaderBoard/>} />
-            <Route path="/Users" element={<Users/>}/>
+            <Route path="LeaderBoard" element={ user ? <LeaderBoard/> : <Navigate replace to="/" />} />
+            <Route path="Users" element={ user ? <Users/> : <Navigate replace to="/" />}/>
             <Route path="Users/:id/Activities" element={<UserActivities/>} />
           </Routes>
         </div>
@@ -50,7 +50,7 @@ function App() {
         <nav className='nav'>
           <Link className='link' to="/Profile">Profile</Link>
           <Link className='link' to="/Activities">Activities</Link>
-          <Link className='link' to="/Users">Athletes</Link>
+          <Link className='link' to="/Athletes">Athletes</Link>
           <Link className='link' to="/LeaderBoard">Leaderboards</Link>
         </nav>
       </div>
