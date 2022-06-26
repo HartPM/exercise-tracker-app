@@ -12,7 +12,10 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-gem 'active_model_serializers'
+gem 'active_model_serializers',
+    '~> 0.10.12',
+    git: 'https://github.com/jpawlyn/active_model_serializers.git',
+    branch: '0-10-stable'
 
 gem 'bcrypt', '~> 3.1.18'
 
@@ -30,7 +33,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'listen', '~> 3.3'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
 end
+
 
