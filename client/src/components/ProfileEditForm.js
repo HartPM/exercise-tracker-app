@@ -24,18 +24,18 @@ function ProfileEditForm ({ user, render, hideForm }) {
     }
 
     return (
-        <form onSubmit={updateProfile}>
+        <form className="form1" onSubmit={updateProfile}>
             <label>
                 Name
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
             </label>
             <label>
                 Date of Birth
-                <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
+                <input className="input2" type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
             </label>
             <label>
                 Weight
-                <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} />
+                <input type="number" className="input2" value={weight} onChange={(e) => setWeight(e.target.value)} />
             </label>
             <label>
                 Gender
@@ -45,7 +45,7 @@ function ProfileEditForm ({ user, render, hideForm }) {
                 Profile Image
                 <input type="text" value={profileImg} onChange={(e) => setProfileImg(e.target.value)} />
             </label>
-            <button type="submit">Update Profile</button>
+            <button className="form-button1" type="submit">Update Profile</button>
         </form>
     )
 }

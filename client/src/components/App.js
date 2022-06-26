@@ -26,9 +26,9 @@ function App() {
 
     return (
       <div>
+
         <div className="wrap">
-        </div>
-        <Logout onLogout={onLogout} />
+        </div>  
         <div className="header-content">
             <h1 className="title">Exercise App</h1>
         </div>
@@ -42,6 +42,7 @@ function App() {
             <Route path="/LeaderBoard" element={<LeaderBoard/>} />
           </Routes>
         </div>
+        <Logout onLogout={onLogout}/> 
         <nav className='nav'>
           <Link className='link' to="/Profile">Profile</Link>
           <Link className='link' to="/Activities">Activities</Link>

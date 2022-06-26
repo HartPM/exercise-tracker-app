@@ -20,11 +20,8 @@ function Login({ onLogin }) {
     }
   
     return (
-      <div className='content-container'>
-        <div>
-          <Auth setCurrentUser={onLogin} />
-        </div>
-        <div>
+      <>
+        <div className='form-container2'>
           <form className='form1' onSubmit={handleSubmit}>
             <input
               type="text"
@@ -38,10 +35,13 @@ function Login({ onLogin }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Login</button>
+            <button className="form-button1" type="submit">Login</button>
           </form>
         </div>
-      </div>
+        <div className="form-container2">
+          <Auth setCurrentUser={onLogin} />
+        </div>
+      </>
     );
   }
 
