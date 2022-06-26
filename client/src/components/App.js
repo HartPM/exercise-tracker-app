@@ -32,7 +32,7 @@ function App() {
         <div className="wrap">
         </div>  
         <div className="header-content">
-            <h1 className="title">Exercise App</h1>
+            <h1 className="title">Run Cycle</h1>
         </div>
         <div className="main">
           <Routes>
