@@ -6,7 +6,6 @@ function Activities ({ user }) {
     const [activities, setActivities] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
-    const[toggleEdit, setToggleEdit] = useState(true);
 
     useEffect(() => {
         fetch(`/users/${user.id}`).then((response) => {
