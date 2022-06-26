@@ -21,12 +21,16 @@ function LeaderBoard() {
         }, [runs]);
 
     return (
-        <>
+        <div className='leaderboard-container'>
+            <div className="profile-column">
             <h1>Longest Runs</h1>
             {runs.map(run => <LongestRuns key={run.id} run={run} />) }
+            </div>
+            <div className="profile-column">
             <h1>Longest Rides</h1>
             {rides.map(ride => <LongestRides key={ride.id} ride={ride} />) }
-        </>
+            </div>
+        </div>
     )
 }
 

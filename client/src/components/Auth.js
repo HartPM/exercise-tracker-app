@@ -37,15 +37,16 @@ function Auth({setCurrentUser}) {
     }
     return (
         <>
-            {showCreateUser ? (
-                <form onSubmit={onSubmit}>
+        {showCreateUser ? (
+            <form className="form1" onSubmit={onSubmit}>
                 <label>
                     Username
                     <input type="text" value={username} onChange={(e) => setUserName(e.target.value)} />
                 </label>
                 <label>
                     Password
-                    <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input 
+                    type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
                 <label>
                     Name
@@ -53,13 +54,15 @@ function Auth({setCurrentUser}) {
                 </label>
                 <label>
                     Date of Birth
-                    <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
+                    <input className="input2" type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
                 </label>
-                <button type="submit">Create Account</button>
+                <button className="form-button1" type="submit">Create Account</button>
             </form>
             ) : null}
-            {!showCreateUser ? <button onClick={showNewUserForm}>Create Account</button> : null } 
-        </>       
+        <div className="form-container2">
+            {!showCreateUser ? <button className="button3" onClick={showNewUserForm}>Create Account</button> : null }
+        </div>
+        </>     
     )
 }
 

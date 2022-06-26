@@ -68,10 +68,16 @@ body {
   color: white;
   padding: 8px 22px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 12px;
   border-radius: 2px;
+  position: absolute;
+  top: 37px;
+  right: 10px;
+}
+
+.button1:hover {
+  box-shadow: 2px 2px 2px black;
+  font-size: 13px;
 }
 
 .button2 {
@@ -84,6 +90,29 @@ body {
   display: inline-block;
   font-size: 16px;
   border-radius: 2px;
+  margin-left: 4%;
+  margin-bottom: 13px;
+}
+
+.button2:hover {
+  box-shadow: 2px 2px 2px black;
+}
+
+.button3 {
+  width: 150px;
+  font-size: 12px;
+  position: absolute;
+  right: 35%;
+  border: none;
+  color: white;
+  background-color: #7a654c;
+  height: 40px;
+  border-radius: 3px;
+}
+
+.button3:hover {
+  box-shadow: 2px 2px 2px black;
+  font-size: 13px;
 }
 
 .main {
@@ -91,6 +120,7 @@ body {
   top: 370px;
   left: 8px;
   width: 100%;
+  min-height: 500px;
   background-color: #f7f4f0;
 }
 
@@ -99,7 +129,6 @@ body {
   display: flex;
   flex-direction: column;
   padding: 15px;
-  /* width: 100%; */
   margin-left: auto;
   margin-right: 15%;
 }
@@ -107,6 +136,14 @@ body {
 .form-container1 {
   background-color: white;
   width:50%;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-container2 {
+  background-color: white;
+  width: 75%;
   border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
@@ -124,6 +161,16 @@ input[type=text], select {
 
 .input1 {
   width: 23.3%;
+  padding: 10px 10px;
+  margin: 8px 10px;
+  border: 1px solid #54539e;
+  border-radius: 4px;
+  box-sizing: border-box;
+  float: right;
+}
+
+.input2 {
+  width: 50%;
   padding: 10px 10px;
   margin: 8px 10px;
   border: 1px solid #54539e;
@@ -156,6 +203,7 @@ table {
   margin-left: auto;
   text-align: center;
   background-color: white;
+  padding-top: 15px;
 }
 
 .table-btn {
@@ -192,4 +240,57 @@ ul {
 
 h2 {
   text-align: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-column {
+  margin-left: auto;
+  margin-right: 10%;
+  margin-top: 10px;
+  Text-align: left;
+}
+
+.profile-img {
+  padding: 15px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 260px;
+}
+
+.p-button {
+  background-color: #54539e;
+  border: none;
+  color: white;
+  padding: 8px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 13px;
+}
+
+.p-button:hover {
+  box-shadow: 2px 2px 2px black;
+}
+
+.leaderboard-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
 }

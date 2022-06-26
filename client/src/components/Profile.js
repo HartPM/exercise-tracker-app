@@ -33,25 +33,28 @@ function Profile () {
 
     return (
         <>
+        <div className="profile-container">
             <div>
-                { toggleForm ? null : <ProfileEditForm user={user} render={setForm} hideForm={hideForm} /> }
-                {!toggleForm ? null : <button onClick={e => setToggleForm(!toggleForm)} >Update Profile</button> }
-                <br></br>
-                <br></br>
-                <img src={user.profile_img} alt='Profile' />
+                <img className="profile-img" src={user.profile_img} alt='Profile' />
                 <h2>{user.name}</h2>
+                {!toggleForm ? null : <button className="p-button" onClick={e => setToggleForm(!toggleForm)}>Update Profile</button>}
             </div>
-            <div>
+            <div className="profile-column">
                 <ul>
                     <li>Birthday: {user.dob}</li>
-                    <li>Athlete Weight: {user.weight} lbs</li>
+                    <li>Weight: {user.weight} lbs</li>
                     <li>Gender: {user.gender}</li>
                 </ul>
             </div>
-            <div>
+            <div className="profile-column">
                 <h4>Total Runs: {activities.reduce((counter, obj) => obj.sport_id === 1 ? counter += 1 : counter, 0)}</h4>
                 <h4>Total Rides: {activities.reduce((counter, obj) => obj.sport_id === 2 ? counter += 1 : counter, 0)}</h4>
             </div>
+        </div>
+        <br></br>
+        <div className="form-container2">
+            { toggleForm ? null : <ProfileEditForm user={user} render={setForm} hideForm={hideForm} /> }
+        </div>
         </>
     )
 }
