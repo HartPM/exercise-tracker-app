@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
-import Activities from './Activities';
-import LeaderBoard from './LeaderBoard';
 import Profile from './Profile';
+import Activities from './Activities';
 import ActivityDetails from "./ActivityDetails";
 import ActivityEditForm from './ActivityEditForm';
+import Users from './Users';
+import UserActivities from './UserActivities';
+import LeaderBoard from './LeaderBoard';
 
 
 function App() {
@@ -40,12 +42,15 @@ function App() {
             <Route path="Activities/:id" element={<ActivityDetails />} />
             <Route path="Activities/:id/edit" element={<ActivityEditForm />} />
             <Route path="/LeaderBoard" element={<LeaderBoard/>} />
+            <Route path="/Users" element={<Users/>}/>
+            <Route path="Users/:id/Activities" element={<UserActivities/>} />
           </Routes>
         </div>
         <Logout onLogout={onLogout}/> 
         <nav className='nav'>
           <Link className='link' to="/Profile">Profile</Link>
           <Link className='link' to="/Activities">Activities</Link>
+          <Link className='link' to="/Users">Athletes</Link>
           <Link className='link' to="/LeaderBoard">Leaderboards</Link>
         </nav>
       </div>

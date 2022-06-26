@@ -1,7 +1,5 @@
 function LongestRides ({ ride }) {
 
-
-
     return (
         <div>
             <h3>{ride.title}</h3>

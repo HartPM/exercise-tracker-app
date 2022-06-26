@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
-function ActivityCard ({activity, reRender}) {
+function UserActivitiesCard({activity}) {
     const {id, title, sport_id, formatted_date, duration, distance, heart_rate, elevation} = activity;
-    const[toggleEdit, setToggleEdit] = useState(true);
 
     let sport = (sport_id ===1) ? "Running" : "Cycling" 
 
@@ -14,12 +11,6 @@ function ActivityCard ({activity, reRender}) {
         } else {
             return title
         }
-    }
-
-    function deleteActivity () {
-        fetch(`/activities/${id}`, {
-            method: "DELETE"
-        }).then(reRender)
     }
 
     return (
@@ -32,16 +23,8 @@ function ActivityCard ({activity, reRender}) {
                     <button className="table-btn">Details</button>
                 </Link>
             </td>
-            <td>
-                 <Link to={`/Activities/${activity.id}/edit`} state={{id, title, sport, formatted_date, duration, distance, heart_rate, elevation}}>
-                    <button value={activity.id} className="table-btn" onClick={() => setToggleEdit(!toggleEdit)}>Edit</button>
-                </Link>
-            </td>
-            <td>
-                <button className="table-btn" onClick={e => deleteActivity(e)} value={activity.id}>Delete</button>
-            </td>
         </tr>
     )
 }
 
-export default ActivityCard;
+export default UserActivitiesCard;

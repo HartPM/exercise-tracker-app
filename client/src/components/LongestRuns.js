@@ -1,7 +1,5 @@
 function LongestRuns ({ run }) {
 
-
-
     return (
         <div>
             <h3>{run.title}</h3>
