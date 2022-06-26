@@ -8,7 +8,7 @@ import ActivityDetails from "./ActivityDetails";
 import ActivityEditForm from './ActivityEditForm';
 import Users from './Users';
 import UserActivities from './UserActivities';
-import LeaderBoard from './LeaderBoard';
+import LeaderBoard from './Leaderboard';
 
 
 function App() {
