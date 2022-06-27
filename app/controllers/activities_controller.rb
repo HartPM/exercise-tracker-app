@@ -3,12 +3,7 @@ class ActivitiesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_response
 
     def index
-        # if params[:user_id]
-        #     user = User.find(params[:user_id])
-        #     activities = user.activities
-        # else
         activities = Activity.all.order(:created_at)
-        # end
         render json: activities, status: :ok
     end
 

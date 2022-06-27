@@ -5,7 +5,7 @@ function Users () {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch(`/users`).then((response) => {
+        fetch('/users').then((response) => {
           if (response.ok) {
             response.json().then((data) => setUsers(data));
           }

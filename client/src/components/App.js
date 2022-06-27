@@ -37,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
             <Route path="Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
-            <Route path="Activities/" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
+            <Route path="Activities" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
             <Route path="Activities/:id" element={<ActivityDetails />} />
             <Route path="Activities/:id/edit" element={<ActivityEditForm />} />
             <Route path="LeaderBoard" element={ user ? <LeaderBoard/> : <Navigate replace to="/" />} />
