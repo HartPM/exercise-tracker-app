@@ -28,7 +28,6 @@ function App() {
 
     return (
       <div>
-
         <div className="wrap">
         </div>  
         <div className="header-content">
@@ -50,7 +49,7 @@ function App() {
         <nav className='nav'>
           <Link className='link' to="/Profile">Profile</Link>
           <Link className='link' to="/Activities">Activities</Link>
-          <Link className='link' to="/Athletes">Athletes</Link>
+          <Link className='link' to="/Users">Athletes</Link>
           <Link className='link' to="/LeaderBoard">Leaderboards</Link>
         </nav>
       </div>

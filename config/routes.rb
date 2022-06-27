@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     # keeps the user logged in from the app component
     get "/me", to: "users#show"
+    
     get "/longest_runs", to: "activities#longest_runs"
     get "/longest_rides", to: "activities#longest_rides"
     get '/hello', to: 'application#hello_world'
