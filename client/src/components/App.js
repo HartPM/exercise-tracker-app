@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
 import Profile from './Profile';
@@ -27,6 +27,7 @@ function App() {
   }
 
     return (
+      <BrowserRouter>
       <div>
         <div className="wrap">
         </div>  
@@ -53,6 +54,7 @@ function App() {
           <Link className='link' to="/LeaderBoard">Leaderboards</Link>
         </nav>
       </div>
+      </BrowserRouter>
     )
 }
 
