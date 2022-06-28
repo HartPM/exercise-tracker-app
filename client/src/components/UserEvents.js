@@ -1,13 +1,13 @@
 import { useLocation } from 'react-router-dom';
-import UserActivityCard from './UserActivityCard';
+import UserEventCard from './UserEventCard';
 
-function UserActivities() {
+function UserEvents() {
     const location = useLocation();
-    const {name, activities} = location.state;
+    const {name, events} = location.state;
 
     return (
         <>
-            <h2>{name}'s activities</h2>
+            <h2>{name}'s Activities</h2>
             <table>
               <thead>
                 <tr>
@@ -17,11 +17,11 @@ function UserActivities() {
                 </tr>
               </thead>
               <tbody>
-                { activities.map(activity => <UserActivityCard key={activity.id} activity={activity}/>) }
+                { events.map(event => <UserEventCard key={event.id} event={event}/>) }
               </tbody>
             </table>
         </>
     )
 }
 
-export default UserActivities;
+export default UserEvents;

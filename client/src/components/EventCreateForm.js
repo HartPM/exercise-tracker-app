@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function ActivityCreateForm ({user, hideForm, reRender}) {
+function EventCreateForm ({user, hideForm, reRender}) {
     const [title, setTitle] = useState('');
     const [hours, setHours] = useState('');
     const [minutes, setMinutes] = useState('');
@@ -15,7 +15,7 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
     
     function handleSubmit(e) {
         e.preventDefault();
-        const activity = {
+        const event = {
             title: title,
             duration: duration(hours, minutes),
             distance: parseInt(distance),
@@ -30,7 +30,7 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(activity),
+          body: JSON.stringify(event),
         })
           .then((r) => r.json())
           .then(
@@ -53,7 +53,7 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
                     Title
                     <input 
                     type="text" 
-                    placeholder={'name your activity'}
+                    placeholder={'name your event'}
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)} />
                 </label>
@@ -106,4 +106,4 @@ function ActivityCreateForm ({user, hideForm, reRender}) {
     )
 }
 
-export default ActivityCreateForm;
+export default EventCreateForm;

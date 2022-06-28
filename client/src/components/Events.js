@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import ActivityCreateForm from "./ActivityCreateForm";
-import ActivityCard from "./ActivityCard";
+import EventCreateForm from "./EventCreateForm";
+import EventCard from "./EventCard";
 
-function Activities ({ user }) {
-    const [activities, setActivities] = useState([]);
+function Events ({ user }) {
+    const [events, setEvents] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
 
     useEffect(() => {
         fetch(`/users/${user.id}`).then((response) => {
           if (response.ok) {
-            response.json().then((data) => setActivities(data.activities));
+            response.json().then((data) => setEvents(data.activities));
           }
         });
       }, [user.id, render]);
 
-      let activityArr = activities.map(activity => <ActivityCard key={activity.id} activity={activity} reRender={reRender} />)
+      let eventArr = events.map(event => <EventCard key={event.id} event={event} reRender={reRender} />)
 
       function hideForm() {
         setToggleCreate(!toggleCreate)
@@ -29,7 +29,7 @@ function Activities ({ user }) {
         <>
             <h2>{user.name}'s Activities</h2>
             <button className="button2" onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
-            {toggleCreate ? null : <ActivityCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
+            {toggleCreate ? null : <EventCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
             <table>
               <thead>
                 <tr>
@@ -39,11 +39,11 @@ function Activities ({ user }) {
                 </tr>
               </thead>
               <tbody>
-                {activityArr}
+                {eventArr}
               </tbody>
             </table>
         </>
     )
 }
 
-export default Activities;
+export default Events;

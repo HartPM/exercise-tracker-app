@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 
-function ActivityEditForm () {
+function EventEditForm () {
     const location = useLocation();
     const {id, title, sport, distance, heart_rate, elevation} = location.state;
 
@@ -20,16 +20,16 @@ function ActivityEditForm () {
     
     function handleSubmit(e) {
         e.preventDefault();
-        let activity = {}
-        activity.title = newTitle
-        activity.distance = newDistance
-        activity.heart_rate = newHeartRate
-        activity.elevation = newElevation
-        if (minutes > 0) { activity.duration = newDuration(hours, minutes) }
+        let event = {}
+        event.title = newTitle
+        event.distance = newDistance
+        event.heart_rate = newHeartRate
+        event.elevation = newElevation
+        if (minutes > 0) { event.duration = newDuration(hours, minutes) }
         if (newSport === "Run") { 
-            activity.sport_id = 1 
+            event.sport_id = 1 
         } else if (newSport === "Bike") {
-            activity.sport_id = 2
+            event.sport_id = 2
         }
         
         fetch(`/activities/${id}`, {
@@ -37,7 +37,7 @@ function ActivityEditForm () {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(activity),
+          body: JSON.stringify(event),
         })
           .then((r) => r.json())
           .then(setUpdate(!update))
@@ -77,11 +77,11 @@ function ActivityEditForm () {
                         </select>
                     </label>
                     <button className="form-button1" type="submit">Save</button>
-                    {update ? <Navigate replace to="/activities" /> : null}
+                    {update ? <Navigate replace to="/events" /> : null}
             </form>
         </div>
     </div>
     )
 }
 
-export default ActivityEditForm;
+export default EventEditForm;
