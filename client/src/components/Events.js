@@ -27,8 +27,8 @@ function Events ({ user }) {
 
     return (
         <>
-            <h2>{user.name}'s events</h2>
-            <button className="button2" onClick={e => setToggleCreate(!toggleCreate)}>Upload Event</button>
+            <h2>{user.name}'s Activities</h2>
+            <button className="button2" onClick={e => setToggleCreate(!toggleCreate)}>Upload Activity</button>
             {toggleCreate ? null : <EventCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
             <table>
               <thead>

@@ -7,7 +7,7 @@ function UserActivities() {
 
     return (
         <>
-            <h2>{name}'s activities</h2>
+            <h2>{name}'s Activities</h2>
             <table>
               <thead>
                 <tr>

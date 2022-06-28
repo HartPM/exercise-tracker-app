@@ -45,7 +45,7 @@ function EventEditForm () {
 
     return (
         <div>
-            <h2>Update event</h2>
+            <h2>Update Activity</h2>
             <div className="form-container1">
                 <form className="form1" onSubmit={e => handleSubmit(e)}>
                     <label>
