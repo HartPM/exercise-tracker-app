@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-function UserActivitiesCard({activity}) {
-    const {title, sport_id, formatted_date, duration, distance, heart_rate, elevation} = activity;
+function UserEventCard({event}) {
+    const {title, sport_id, formatted_date, duration, distance, heart_rate, elevation} = event;
 
     let sport = (sport_id ===1) ? "Running" : "Cycling" 
 
@@ -19,7 +19,7 @@ function UserActivitiesCard({activity}) {
             <td>{sport}</td>
             <td>{formatted_date}</td>
             <td>
-                <Link to={`/Events/${activity.id}`}  state={{title, sport, formatted_date, duration, distance, heart_rate, elevation}}>
+                <Link to={`/Events/${event.id}`}  state={{title, sport, formatted_date, duration, distance, heart_rate, elevation}}>
                     <button className="table-btn">Details</button>
                 </Link>
             </td>
@@ -27,4 +27,4 @@ function UserActivitiesCard({activity}) {
     )
 }
 
-export default UserActivitiesCard;
+export default UserEventCard;
