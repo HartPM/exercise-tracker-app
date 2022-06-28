@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 
-function ActivityDetails () {
+function EventDetails () {
     const location = useLocation();
     const {title, sport, duration, formatted_date, distance, heart_rate, elevation} = location.state;
 
@@ -63,4 +63,4 @@ function ActivityDetails () {
         </>    )
 }
 
-export default ActivityDetails;
+export default EventDetails;

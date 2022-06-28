@@ -3,9 +3,9 @@ import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
 import Profile from './Profile';
-import Activities from './Activities';
-import ActivityDetails from "./ActivityDetails";
-import ActivityEditForm from './ActivityEditForm';
+import Events from './Events';
+import ActivityDetails from "./EventDetails";
+import ActivityEditForm from './EventEditForm';
 import Users from './Users';
 import UserActivities from './UserActivities';
 import LeaderBoard from './Leaderboard';
@@ -35,11 +35,11 @@ function App() {
         </div>
         <div className="main">
           <Routes>
-            <Route path="/" element={ user ? (<Navigate replace to="/activities" />) : (<Login onLogin={setUser} />) } />
+            <Route path="/" element={ user ? (<Navigate replace to="/Events" />) : (<Login onLogin={setUser} />) } />
             <Route path="Profile" element={ user ? <Profile /> : <Navigate replace to="/" />} />
-            <Route path="Activities" element={ user ? <Activities user={user} /> : <Navigate replace to="/" />} />
-            <Route path="Activities/:id" element={<ActivityDetails />} />
-            <Route path="Activities/:id/edit" element={<ActivityEditForm />} />
+            <Route path="Events" element={ user ? <Events user={user} /> : <Navigate replace to="/" />} />
+            <Route path="Events/:id" element={<ActivityDetails />} />
+            <Route path="Events/:id/edit" element={<ActivityEditForm />} />
             <Route path="LeaderBoard" element={ user ? <LeaderBoard/> : <Navigate replace to="/" />} />
             <Route path="Users" element={ user ? <Users/> : <Navigate replace to="/" />}/>
             <Route path="Users/:id/Activities" element={<UserActivities/>} />
@@ -48,7 +48,7 @@ function App() {
         <Logout onLogout={onLogout}/> 
         <nav className='nav'>
           <Link className='link' to="/Profile">Profile</Link>
-          <Link className='link' to="/Activities">Activities</Link>
+          <Link className='link' to="/Events">Events</Link>
           <Link className='link' to="/Users">Athletes</Link>
           <Link className='link' to="/LeaderBoard">Leaderboards</Link>
         </nav>
